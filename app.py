@@ -6,7 +6,7 @@ class SimpleHandler(BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header('Content-type', 'text/html')
             self.end_headers()
-            self.wfile.write('''
+            html_content = '''
             <html>
             <body style="font-family:Arial; text-align:center; padding:50px; background:#f0f8ff">
                 <h1>Hello from Docker Container! 🐳</h1>
@@ -14,7 +14,10 @@ class SimpleHandler(BaseHTTPRequestHandler):
                 <p style="color:green">Container is healthy and running!</p>
             </body>
             </html>
-            ''')
+            '''
+            
+            self.wfile.write(html_content.encode('utf-8'))
+            
         elif self.path == '/health':
             self.send_response(200)
             self.send_header('Content-type', 'text/plain')
