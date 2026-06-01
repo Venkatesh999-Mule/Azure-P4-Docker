@@ -67,3 +67,4 @@ stages:
         azureSubscription: 'docker-webserver-connection'
         appName: 'docker-webserver-app'
         containers: '$(ACR_NAME).azurecr.io/$(IMAGE_NAME):$(TAG)'
+        appSettings: '-WEBSITES_PORT 8080'
