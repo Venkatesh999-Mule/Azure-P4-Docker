@@ -64,6 +64,6 @@ stages:
     - task: AzureWebAppContainer@1
       displayName: 'Deploy Docker Container'
       inputs:
-        azureSubscription: 'java-gradle-connection'
+        azureSubscription: 'docker-webserver-connection'
         appName: 'docker-webserver-app'
         containers: '$(ACR_NAME).azurecr.io/$(IMAGE_NAME):$(TAG)'
