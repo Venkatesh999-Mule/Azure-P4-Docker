@@ -28,6 +28,7 @@ class SimpleHandler(BaseHTTPRequestHandler):
         print(f"Request: {args}")
 
 if __name__ == '__main__':
-    server = HTTPServer(('0.0.0.0', 8080), SimpleHandler)
-    print('Server running on port 8080...')
+    port = int(os.environ.get('WEBSITES_PORT', os.environ.get('PORT', 8080)))
+    server = HTTPServer(('0.0.0.0', port), SimpleHandler)
+    print(f'Server running on port {port}...')
     server.serve_forever()
